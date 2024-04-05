@@ -4,7 +4,7 @@ let j = 0;
 let sorted = false;
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(500, 500);
     values = new Array(10);
     for (let i = 0; i < values.length; i++) {
         values[i] = random(height);
@@ -38,12 +38,15 @@ function sleep(ms) {
 }
 
 function draw() {
-    background(200); // Grey background
-    strokeWeight(5); 
-    
+    background(0); // Black background
+    let barWidth = width / values.length;
+
     for (let i = 0; i < values.length; i++) {
-        stroke(255);
-        line(i * 10, height, i * 10, height - values[i]);
+        let x = i * barWidth;
+        let y = height - values[i];
+        let barHeight = values[i];
+        fill(255);
+        rect(x, y, barWidth, barHeight);
     }
 
     if (sorted) {
