@@ -44,10 +44,23 @@ body {
 .nav-links li a {
   color: #fff;
   text-decoration: none;
+  position: relative;
 }
 
-.nav-links li a:hover {
-  text-decoration: underline;
+.nav-links li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
 }
 
 canvas {
