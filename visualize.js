@@ -1,14 +1,16 @@
-let values = []; // Array to store the values to be sorted
-let i = 0; // Index variable used in sorting loops
-let j = 0; // Index variable used in sorting loops
-let sorted = false; // Flag to indicate if the array is sorted
-let swappingIndexes = []; // Array to store indexes of bars being swapped
+let values = []; 
+let i = 0;
+let j = 0;
+let sorted = false;
+let swappingIndexes = [];
+let animationSpeed = 100;
 
 function setup() {
-    // Create a canvas with size 500x500
-    createCanvas(500, 500);
-    // Initialize the values array with 11 elements, each set to a random height
-    values = new Array(11);
+    createCanvas(windowWidth, 500);
+
+    let numElements = floor(width / 50); // Calculate number of elements based on canvas width
+    // Initialize the values array each set to a random height
+    values = new Array(numElements);
     for (let i = 0; i < values.length; i++) {
         values[i] = random(height);
     }
@@ -24,8 +26,10 @@ async function bubbleSort() {
         for (j = 0; j < values.length - i - 1; j++) {
             // Highlight the bars being compared
             swappingIndexes = [j, j + 1];
-            await sleep(100); // Pause for visualization (adjust the speed of sorting here)
+
+            await sleep(animationSpeed); // Pause for visualization (adjust the speed of sorting here)
             // If current element is greater than next element, swap them
+
             if (values[j] > values[j + 1]) {
                 await swap(values, j, j + 1);
                 sorted = false; // Set sorted to false if a swap occurs
@@ -51,7 +55,7 @@ function sleep(ms) {
 
 function draw() {
     // Set the background color to black
-    background(0);
+    background(100);
     // Calculate the width of each bar based on the canvas width and the number of elements
     let barWidth = width / values.length;
 
@@ -71,6 +75,17 @@ function draw() {
 
     // If the array is sorted, print "Sorted!" to the console and stop the loop
     if (sorted) {
+        for (let i = 0; i < values.length; i++) {
+            let x = i * barWidth; // Calculate the x-coordinate of the bar
+            let y = height - values[i]; // Calculate the y-coordinate of the top of the bar
+            let barHeight = values[i]; // Height of the bar
+            let gradient = map(values[i], 0, height, 0, 1);
+            let from = color(20);
+            let to = color(250);
+            let gradientColor = lerpColor(from, to, gradient);
+            fill(gradientColor);
+            rect(x, y, barWidth, barHeight); // Draw the bar
+        }   
         console.log("Sorted!");
         noLoop();
     }
