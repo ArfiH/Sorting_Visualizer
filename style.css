@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #d9dcdf;
+  background-color: rgb(100, 100, 100);
 }
 
 .container {
@@ -64,7 +64,12 @@ body {
 }
 
 canvas {
-  display: inline-block; 
-  margin-top: -87px
+  display: inline;
+  position: absolute;
+  top: 18px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin:auto;
 }
 

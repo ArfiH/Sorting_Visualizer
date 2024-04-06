@@ -6,7 +6,7 @@ let swappingIndexes = [];
 let animationSpeed = 100;
 
 function setup() {
-    createCanvas(windowWidth, 500);
+    createCanvas(min(windowWidth, 700), 500);
 
     let numElements = floor(width / 50); // Calculate number of elements based on canvas width
     // Initialize the values array each set to a random height
