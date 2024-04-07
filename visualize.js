@@ -4,6 +4,7 @@ let j = 0;
 let sorted = false;
 let swappingIndexes = [];
 let animationSpeed = 100;
+let algorithm = 'Bubble Sort';
 
 function setup() {
     createCanvas(min(windowWidth, 700), 500);
@@ -15,8 +16,21 @@ function setup() {
         values[i] = random(height);
     }
 
-    // Start sorting once setup is done
-    bubbleSort();
+    let algorithmSelector = createSelect();
+    algorithmSelector.position(10, 10);
+    algorithmSelector.option('Bubble Sort');
+    algorithmSelector.option('Selection Sort');
+    
+    algorithmSelector.changed(() => {
+        algorithm = algorithmSelector.value();
+        i = 0;
+        j = 0;
+        values = new Array(numElements);
+        for (let i = 0; i < values.length; i++) {
+            values[i] = random(height);
+        }
+        loop();
+        });
 }
 
 // Bubble sort algorithm
@@ -40,6 +54,23 @@ async function bubbleSort() {
     }
     sorted = true; // Set sorted to true once sorting is complete
 }
+
+async function selectionSort() {
+    if (i < values.length - 1) {
+      let minIndex = i;
+      for (let j = i + 1; j < values.length; j++) {
+        if (values[j] < values[minIndex]) {
+            minIndex = j;
+        }
+      }
+      if (minIndex !== i) {
+        await swap(values, i, minIndex);
+        sorted = false;
+      }
+      i++;
+    }
+    sorted = true;
+  }
 
 // Function to swap two elements in the array
 async function swap(arr, a, b) {

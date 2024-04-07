@@ -1,75 +1,74 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(100, 100, 100);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(100, 100, 100);
 }
 
 .container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 10px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 .navbar {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
 }
 
 .container .logo {
-  font-size: 24px;
-  color: #fff;
-  text-decoration: none;
-  margin-right: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
 }
 
 .nav-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
 }
 
 .nav-links li {
-  display: inline-block;
-  justify-content: left;
-  padding-right: 3%;
+    display: inline-block;
+    justify-content: left;
+    padding-right: 3%;
 }
 
 .nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  position: relative;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
 }
 
 .nav-links li a::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background-color: #fff;
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  transition: width 0.3s;
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s;
 }
 
 .nav-links li a:hover::after {
-  width: 100%;
+    width: 100%;
 }
 
 canvas {
-  display: inline;
-  position: absolute;
-  top: 18px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin:auto;
+    display: inline;
+    position: absolute;
+    top: 18px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
-
